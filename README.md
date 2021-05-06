@@ -9,3 +9,10 @@ Warning: To install Anbox, your system must have an Anbox support patch, this pa
 The script was written: Seiwer-Tail
 
 Thanks a lot for the help in fixing bugs and in general for help: truebibarub
+
+
+# How to run?
+
+wget https://github.com/seiwer-tail/anbox-ut-unnoficial-installer/blob/main/anbox-install.sh
+chmod +x anbox-install.sh
+./anbox-install.sh
