@@ -35,23 +35,23 @@ case $menu in
 i) echo " Preparatory work will be done now. The system will now ask for a password to install the screenfetch and android-tools package"
    echo " "
    read -p "Press enter to start preparation" prepare
-   exec sudo mount -o remount, rw /
-   exec sudo apt install -y screenfetch anbox-ubuntu-touch  android-tools-adb
-   exec cd /home/phablet/ 
-   exec mkdir /home/phablet/anbox-data
+   sudo mount -o remount, rw /
+   sudo apt install -y screenfetch anbox-ubuntu-touch  android-tools-adb
+   cd /home/phablet/ 
+   mkdir /home/phablet/anbox-data
    echo "Excellent! Let us ask a couple of questions before starting the installation to start the installation"
    echo "Don't worry, the questions will be easy" 
    read -p "[enter]"
-   exec screenfetch -n
+   screenfetch -n
    echo "Please select the architecture of your processor (you can find it now in the Kernel column in the system information that was displayed above"
    read -p "[aarch64 | armhf] " arhitecture
    case $arhitecture in
    aarch64)  echo " Are you ready to install?"
              read -p "[y / n] " installing
              case $installing in
-             y)  exec wget http://cdimage.ubports.com/anbox-images/android-armhf-64binder.img -O /home/phablet/anbox-data/android.img
-                exec touch /home/phablet/anbox-data/.enable
-                exec sudo start -q anbox-container
+             y) wget http://cdimage.ubports.com/anbox-images/android-armhf-64binder.img -O /home/phablet/anbox-data/android.img
+                touch /home/phablet/anbox-data/.enable
+                sudo start -q anbox-container
                 echo "You need to reboot your system to complete the installation"
                 echo "Reboot?"
                 read -p "[y / n]" reboot
@@ -59,7 +59,7 @@ i) echo " Preparatory work will be done now. The system will now ask for a passw
                 y ) echo "Thanks for installing"
                    echo "The script was made by Seiwer-Tail"
                    read -p "Press Enter to reboot"
-                   exec reboot;;
+                   reboot;;
              n ) echo "Sorry, this is the end.";; 
              esac;;
              n ) echo "Sorry, this is the end.";;
@@ -67,9 +67,9 @@ i) echo " Preparatory work will be done now. The system will now ask for a passw
  armhf) echo " Are you ready to install?"
         read -p "[y / n] " installing
         case $installing in
-             y) exec wget http://cdimage.ubports.com/anbox-images/android-armhf-32binder.img -O /home/phablet/anbox-data/android.img
-                exec touch /home/phablet/anbox-data/.enable
-                exec sudo start -q anbox-container
+             y) wget http://cdimage.ubports.com/anbox-images/android-armhf-32binder.img -O /home/phablet/anbox-data/android.img
+                touch /home/phablet/anbox-data/.enable
+                sudo start -q anbox-container
                 echo "You need to reboot your system to complete the installation"
                 echo "Reboot?"
                 read -p "[y / n]" yesno
@@ -77,7 +77,7 @@ i) echo " Preparatory work will be done now. The system will now ask for a passw
                 y) echo "Thanks for installing"
                    echo "The script was made by Seiwer-Tail"
                    read -p "Press Enter to reboot"
-                   exec reboot;;
+                   reboot;;
                 n) echo "Sorry, this is the end.";;
                 esac;;
              n) echo "Sorry, this is the end."
